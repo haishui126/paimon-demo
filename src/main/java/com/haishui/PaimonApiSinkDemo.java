@@ -55,6 +55,7 @@ public class PaimonApiSinkDemo {
         DataType inputType = TypeConversions.fromLogicalToDataType(logicalType);
         new FlinkSinkBuilder(table)
                 .forRow(input, inputType)
+                .inputBounded(true)
                 .build();
 
         env.execute();
